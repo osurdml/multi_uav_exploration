@@ -10,7 +10,7 @@ Explorer::Explorer(ros::NodeHandle& nh)
     tfListener(nh) {
 }
 
-void Explorer::spinOnce() {
+void Explorer::process(const ros::TimerEvent& event) {
   switch(mode) {
     case BehaviorMode::Initialize:
       // Home location is continually updated to the current location until we

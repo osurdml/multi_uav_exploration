@@ -37,7 +37,7 @@ class Explorer {
 public:
   Explorer(ros::NodeHandle& nh);
 
-  virtual void spinOnce();
+  virtual void process(const ros::TimerEvent& event);
   virtual void transition(BehaviorMode to);
 
   bool setStateCallback(SetState::Request& req, SetState::Response& resp);

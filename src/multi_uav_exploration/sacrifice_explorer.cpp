@@ -7,8 +7,8 @@ SacrificeExplorer::SacrificeExplorer(ros::NodeHandle& nh)
     finishSacrificeClient(nh.serviceClient<FinishSacrifice>("/finish_sacrifice")) {
 }
 
-void SacrificeExplorer::spinOnce() {
-  Explorer::spinOnce();
+void SacrificeExplorer::process(const ros::TimerEvent& event) {
+  Explorer::process(event);
 
   switch(mode) {
     case BehaviorMode::Initialize:

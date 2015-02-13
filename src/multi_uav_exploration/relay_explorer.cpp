@@ -8,8 +8,8 @@ RelayExplorer::RelayExplorer(ros::NodeHandle& nh)
     finishSacrificeServer(nh.advertiseService("finish_sacrifice", &RelayExplorer::sacrificeFinishCallback, this)) {
 }
 
-void RelayExplorer::spinOnce() {
-  Explorer::spinOnce();
+void RelayExplorer::process(const ros::TimerEvent& event) {
+  Explorer::process(event);
 
   switch(mode) {
     case BehaviorMode::Initialize:

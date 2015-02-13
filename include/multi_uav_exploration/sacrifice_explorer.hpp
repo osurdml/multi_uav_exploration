@@ -11,7 +11,7 @@ class SacrificeExplorer : public Explorer {
 public:
   SacrificeExplorer(ros::NodeHandle& nh);
 
-  virtual void spinOnce() override;
+  virtual void process(const ros::TimerEvent& event) override;
   virtual void transition(BehaviorMode to) override;
 
   virtual void exploreTimerCallback(const ros::TimerEvent& event) override;

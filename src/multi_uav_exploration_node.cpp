@@ -36,14 +36,9 @@ int main(int argc, char **argv) {
     explorer = std::make_unique<multi_uav_exploration::SacrificeExplorer>(nh);
   }
 
-  ros::Rate rate(10.0);
-  while(ros::ok()) {
-    explorer->spinOnce();
+  ros::Timer explorerTimer = nh.createTimer(ros::Rate(10), &multi_uav_exploration::Explorer::process, explorer.get());
 
-    ros::spinOnce();
-
-    rate.sleep();
-  }
+  ros::spin();
 
   return 0;
 }
